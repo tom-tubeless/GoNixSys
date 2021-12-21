@@ -2,19 +2,23 @@
 
 My Configuration Repo for NixOS
 
-## Remote Login with SSH
+## Installation
+
+### Remote Login with SSH (Optional)
+
+On the machine you have to set a password to activate ssh.
 
 ```sh
 passwd
 ```
 
-Login with
+On the remote machine you can login with
 
 ```sh
 ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -p PORT nixos@ip-address
 ```
 
-## Prep Disk
+### Disk preparation
 
 ```sh
 sudo -i
@@ -24,7 +28,7 @@ lsblk
 wipefs -a /dev/sda
 ```
 
-## Diff install Optional
+### Disk Partition
 
 ```sh
 export ROOT_DISK=/dev/sda
@@ -42,7 +46,7 @@ parted -a opt --script "${ROOT_DISK}" \
 fdisk /dev/sda -l
 ```
 
-## Encrypt Primary Disk
+### Encrypt Primary Disk
 
 ```sh
 cryptsetup luksFormat /dev/disk/by-partlabel/root
@@ -60,7 +64,7 @@ lvcreate -l '100%FREE' -n root vg
 lvdisplay
 ```
 
-## Format Disks
+### Format Disks
 
 ```sh
 mkfs.fat -F 32 -n boot /dev/disk/by-partlabel/boot
@@ -84,81 +88,26 @@ mount /dev/disk/by-label/boot /mnt/boot
 swapon /dev/vg/swap
 ```
 
-## Install system
+### Install system
+
+> Note: Use the desired target host after the '#'.
+> They are parts of `flake.nix`.
 
 ```sh
 nix-shell -p git nixFlakes
 
-git clone https://github.com/tom-tubeless/GoNixSys.git /mnt/etc/nixos
+git clone https://github.com/tom-tubeless/GoNixSys.git
 
-nixos-install --root /mnt --flake /mnt/etc/nixos#testbox
+nixos-install --root /mnt --flake /home/lgo/GoNixSys/#reiner --impure
 
 reboot
 
-sudo nix flake update /etc/nixos/
+GoNixSys/update-system.sh
 
-sudo nixos-rebuild switch --flake /etc/nixos/#nixtst
-
-# nixos-generate-config --root /mnt
-
-# rm /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/configuration.nix
-
-# nano /mnt/etc/nixos/hardware-configuration.nix
-
-# nano /mnt/etc/nixos/configuration.nix
-
-# nixos-install
+GoNixSys/apply-system.sh
 ```
 
-<!-- # NixOS Flakes
-
-```sh
-nix-shell -I nixpkgs=channel:nixos-21.11 --packages nixUnstable
-
-nix-channel --list
-
-nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-
-nixos-rebuild switch --upgrade
-
-mkdir -p ~/.config/nix
-
-echo 'experimental-features = nix-command flakes' >> ~/.config/nix/nix.conf
-``` -->
-<!--
-```sh
-gpg2 --expert --full-gen-key
-
-gpg --output ../private.gpg --armor --export-secret-key "id"
-
-gpg --homedir '~/.gnupg' --pinentry-mode loopback --output private.gpg --armor --export-secret-key "id"
-
-gpg --edit-key "id"
-
-> trust
-> quit
-
-git crypt init
-
-git crypt add-gpg-user lutz0go@gmail.com
-
-git crypt export-key ../gitgpg.key
-
-mkdir secrets
-
-echo ".secrets/** filter=git-crypt diff=git-crypt" > .gitattributes
-
-git add .
-
-git commit -m "Initial commit"
-
-git crypt lock
-git crypt unlock
-``` -->
-
-# Home-Manager
-
-## Installation
+## Home-Manager Installation
 
 Installation is very straightforward.
 
@@ -188,3 +137,33 @@ nix flake update ~/GoNixSys/home-manager
 
 home-manager switch --flake ~/GoNixSys/home-manager/#$USER -v
 ```
+
+<!-- ```sh
+gpg2 --expert --full-gen-key
+
+gpg --output ../private.gpg --armor --export-secret-key "id"
+
+gpg --homedir '~/.gnupg' --pinentry-mode loopback --output private.gpg --armor --export-secret-key "id"
+
+gpg --edit-key "id"
+
+> trust
+> quit
+
+git crypt init
+
+git crypt add-gpg-user lutz0go@gmail.com
+
+git crypt export-key ../gitgpg.key
+
+mkdir secrets
+
+echo ".secrets/** filter=git-crypt diff=git-crypt" > .gitattributes
+
+git add .
+
+git commit -m "Initial commit"
+
+git crypt lock
+git crypt unlock
+``` -->
