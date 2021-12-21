@@ -88,6 +88,50 @@ mount /dev/disk/by-label/boot /mnt/boot
 swapon /dev/vg/swap
 ```
 
+### Create GnuPG Keys for password encryption
+
+Alternativly you can import existig keys.
+
+```sh
+gpg2 --expert --full-gen-key
+
+gpg --output ../private.gpg --armor --export-secret-key "id"
+
+gpg --homedir '~/.gnupg' --pinentry-mode loopback --output private.gpg --armor --export-secret-key "id"
+
+gpg --edit-key "id"
+
+> trust
+> quit
+```
+
+### Store enrypted password files with git-crypt
+
+1. Initialize git-crypt
+
+```sh
+git crypt init
+
+git crypt add-gpg-user lutz0go@gmail.com
+
+git crypt export-key ../gitgpg.key
+
+mkdir secrets
+
+echo ".secrets/** filter=git-crypt diff=git-crypt" > .gitattributes
+
+# clean git with git stash or push
+
+git crypt lock
+git crypt unlock
+```
+
+2. Create password file and source it
+
+```sh
+
+```
+
 ### Install system
 
 > Note: Use the desired target host after the '#'.
