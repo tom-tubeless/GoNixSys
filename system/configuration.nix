@@ -244,10 +244,8 @@
   environment = {
     systemPackages = with pkgs; [
       git
-      hunspellDicts; [
-        de_DE
-        en_US
-      ];
+      hunspellDicts.de_DE
+      hunspellDicts.en_US
       mkpasswd
       wget
     ];
