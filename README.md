@@ -132,10 +132,17 @@ touch secrets/$USER-pw
 
 mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt'
 
-echo "output from above" > secrets/$USER-pw
+echo $(mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt') > secrets/$USER-pw
 
-git unlock
+git commit -m "added enrypted file"
 
+git-crypt status
+
+git add .
+
+git commit -m "upload enrypted files"
+
+git push origin main
 ```
 
 ### Install system
