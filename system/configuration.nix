@@ -5,8 +5,7 @@
     imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #./home-manager.nix
-      # ./services/nixos-auto-update.nix
+      ../services/nixos-auto-update.nix
     ];
 
   nixpkgs = {
@@ -129,7 +128,7 @@
 
   ### Services ###
   services = {
-    # nixos-auto-update.enable = true;
+    nixos-auto-update.enable = true;
     logrotate = {
       enable = true;
       extraConfig = ''

@@ -23,10 +23,10 @@ with lib;
      mkStartScript = name: pkgs.writeShellScript "${name}.sh" ''
        set -euo pipefail
        PATH=${makeBinPath (with pkgs; [ git ])}
-       export NIX_PATH="nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix"
-       cd /etc/nixos/
-       ${gitPath} pull origin master
-       ${config.system.build.nixos-rebuild}/bin/nixos-rebuild switch --flake '/etc/nixos/#nixtst' --impure
+       export NIX_PATH="nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=~/GoNixSys/configuration.nix"
+       cd ~/GoNixSys
+       ${gitPath} pull origin main
+       ${config.system.build.nixos-rebuild}/bin/nixos-rebuild switch --flake '~/GoNixSys/#' --impure
      '';
    in
    mkIf cfg.enable {
