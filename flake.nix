@@ -25,6 +25,9 @@
                   # ./system/hardware-configuration.nix
                   ./system/configuration.nix
                 ];
+              networking = {
+                hostName = "testbox";
+              };
             }
           )
         ];
@@ -46,6 +49,9 @@
                   # ./system/hardware-configuration.nix
                   ./system/configuration.nix
                 ];
+              networking = {
+                hostName = "reiner";
+              };
             }
           )
         ];
