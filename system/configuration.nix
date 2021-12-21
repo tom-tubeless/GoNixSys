@@ -98,8 +98,26 @@
     supportedLocales = [ "de_DE.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
   };
   console = {
-    font = "Lat2-Terminus16";
+    font = "Lat2-Terminus32";
     keyMap = "de";
+    colors = [
+      "2E3440"
+      "3B4252"
+      "434C5E"
+      "4C566A"
+      "D8DEE9"
+      "E5E9F0"
+      "ECEFF4"
+      "8FBCBB"
+      "88C0D0"
+      "81A1C1"
+      "5E81AC"
+      "BF616A"
+      "D08770"
+      "EBCB8B"
+      "A3BE8C"
+      "B48EAD"
+    ];
   };
   fonts = {
     fontDir.enable = true;
@@ -226,9 +244,16 @@
   environment = {
     systemPackages = with pkgs; [
       git
+      hunspellDicts; [
+        de_DE
+        en_US
+      ];
       mkpasswd
       wget
     ];
+    variables = {
+      CLICOLOR = "TRUE";
+    };
   
   shellAliases = {
       cp = "cp -i";
