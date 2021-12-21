@@ -129,12 +129,6 @@ EOT
 1. Create password file and source it
 
 ```sh
-git lock
-
-touch secrets/$USER-pw
-
-mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt'
-
 echo $(mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt') > secrets/$USER-pw
 
 git commit -m "added enrypted file"
