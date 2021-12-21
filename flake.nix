@@ -24,7 +24,6 @@
                 [
                   ./system/hardware-configuration.nix
                   ./system/configuration.nix
-#                  ./users/dev_users.nix
                 ];
             }
           )
