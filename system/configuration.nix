@@ -82,12 +82,12 @@
   ### Time and locales
   time.timeZone = "Europe/Berlin";
   i18n = {
-    defaultLocale = "en_US.UTF-8";
-    supportedLocales = [ "en_US.UTF-8/UTF-8" ];
+    defaultLocale = "de_DE.UTF-8";
+    supportedLocales = [ "de_DE.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
   };
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "us";
+    keyMap = "de";
   };
   fonts = {
     fontDir.enable = true;
@@ -181,8 +181,8 @@
           pkgs.zsh-powerlevel10k
           pkgs.zsh-syntax-highlighting
         ];
-        theme = "robbyrussell";
       };
+      promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     };
     nano.nanorc = ''
       set atblanks
