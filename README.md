@@ -116,9 +116,12 @@ git crypt add-gpg-user lutz0go@gmail.com
 
 git crypt export-key ../gitgpg.key
 
-mkdir secrets
+mkdir .secrets
 
-echo "secrets/** filter=git-crypt diff=git-crypt" > .gitattributes
+cat <<EOT >> .gitattributes
+.secrets/** filter=git-crypt diff=git-crypt
+.gitattributes !filter !diff
+EOT
 
 # clean git with git stash or push
 ```
