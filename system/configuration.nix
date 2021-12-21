@@ -79,7 +79,7 @@
 
   ### Networking ###
   networking = {
-    hostName = "testbox";
+    # hostName = "testbox";
     interfaces.enp0s3.useDHCP = true;
     useDHCP = false;
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
