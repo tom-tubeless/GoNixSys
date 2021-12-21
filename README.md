@@ -129,7 +129,7 @@ EOT
 1. Create password file and source it
 
 ```sh
-echo $(mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt') > secrets/$USER-pw
+echo $(mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt') > .secrets/$USER-pw
 
 git commit -m "added enrypted file"
 
