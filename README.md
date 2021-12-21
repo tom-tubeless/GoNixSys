@@ -121,16 +121,27 @@ mkdir secrets
 echo ".secrets/** filter=git-crypt diff=git-crypt" > .gitattributes
 
 # clean git with git stash or push
+```
 
 git crypt lock
 git crypt unlock
-```
+
+````
 
 2. Create password file and source it
 
 ```sh
+git lock
 
-```
+touch secrets/$USER-pw
+
+mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt'
+
+echo "output from above" > secrets/$USER-pw
+
+git unlock
+
+````
 
 ### Install system
 
