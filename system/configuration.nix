@@ -164,7 +164,26 @@
   programs = {
     ssh.startAgent = false;
     vim.defaultEditor = true;
-    zsh.enable = true;
+    zsh = {
+      enable = true;
+      ohMyZsh= {
+        enable = true;
+        plugins = [
+          "battery"
+          "git"
+        ];
+        customPkgs = [
+          pkgs.nix-zsh-completions
+          pkgs.zsh-autocomplete
+          pkgs.zsh-autosuggestions
+          pkgs.zsh-completions
+          pkgs.zsh-nix-shell
+          pkgs.zsh-powerlevel10k
+          pkgs.zsh-syntax-highlighting
+        ];
+        theme = "robbyrussell";
+      };
+    };
     nano.nanorc = ''
       unset backup
       set nonewlines
