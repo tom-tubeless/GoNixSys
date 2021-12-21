@@ -118,17 +118,12 @@ git crypt export-key ../gitgpg.key
 
 mkdir secrets
 
-echo ".secrets/** filter=git-crypt diff=git-crypt" > .gitattributes
+echo "secrets/** filter=git-crypt diff=git-crypt" > .gitattributes
 
 # clean git with git stash or push
 ```
 
-git crypt lock
-git crypt unlock
-
-````
-
-2. Create password file and source it
+1. Create password file and source it
 
 ```sh
 git lock
@@ -141,7 +136,7 @@ echo "output from above" > secrets/$USER-pw
 
 git unlock
 
-````
+```
 
 ### Install system
 
