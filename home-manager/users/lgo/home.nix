@@ -19,6 +19,7 @@
   programs = { 
     dircolors.enable = true;
     gpg.enable = true;
+    home-manager.enable = true;
 
     direnv = {
       enable = true;
@@ -41,7 +42,4 @@
       git-crypt
       gnupg
   ];
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }

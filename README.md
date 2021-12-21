@@ -155,3 +155,36 @@ git commit -m "Initial commit"
 git crypt lock
 git crypt unlock
 ``` -->
+
+# Home-Manager
+
+## Installation
+
+Installation is very straightforward.
+
+1. Add home manager nix channel to users channel.
+   > Note: make sure you are logged in as normal users and not as a root.
+   > Note: Pay attention to the release version that should be the same as your NixOs version. In the below example, we use the latest NixOs and Home Manager release.
+
+```sh
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz home-manager
+```
+
+2. Update newly added channel
+
+```sh
+nix-channel --update
+```
+
+3. Home Manager installation
+   > Note: Before installation is a good idea to logoff and login again before continuing with installation to avoid any potential issues with the missing path to the newly updated channel.
+
+```sh
+nix-shell '<home-manager>' -A install
+```
+
+```sh
+nix flake update ~/GoNixSys/home-manager
+
+home-manager switch --flake ~/GoNixSys/home-manager/#$USER -v
+```
