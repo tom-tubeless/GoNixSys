@@ -2,11 +2,12 @@
 
 {
 
-    imports =
-    [ # Include the results of the hardware scan.
+  imports =
+  [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../services/nixos-auto-update.nix
-    ];
+      ./kde.nix
+  ];
 
   nixpkgs = {
     config = {
@@ -47,6 +48,17 @@
   boot = {
     initrd.checkJournalingFS = false; # for Virtualbox only
     kernelPackages = pkgs.linuxPackages_latest;
+    # kernelModules = mkBefore [
+    #   "intel_agp"
+    #   "i915"
+    # ];
+    # kernelModules = mkBefore [
+    #   "intel_agp"
+    #   "i915"
+    # ];
+    # kernelCompression = mkBefore [
+    #   "zstd"
+    # ];
     loader = {
       efi.canTouchEfiVariables = true;
       grub = {
@@ -236,16 +248,16 @@
   ### System Configuration ###
   system = {
     stateVersion = "21.11"; # Did you read the comment?
-    # autoUpgrade = {
-    #   enable = true;
-    #   allowReboot = true;
-    #   flake = "github:mudrii/systst";
-    #   flags = [
-    #     "--recreate-lock-file"
-    #     "--no-write-lock-file"
-    #     "-L" # print build logs
-    #   ];
-    #   dates = "daily";
-    # };
+    autoUpgrade = {
+      enable = true;
+      allowReboot = false;
+      flake = "github:tom-tubeless/GoNixSys";
+      flags = [
+        "--recreate-lock-file"
+        "--no-write-lock-file"
+        "-L" # print build logs
+      ];
+      dates = "daily";
+    };
   };
 }
