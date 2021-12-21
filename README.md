@@ -90,8 +90,6 @@ swapon /dev/vg/swap
 
 ### Create GnuPG Keys for password encryption
 
-Alternativly you can import existig keys.
-
 ```sh
 gpg2 --expert --full-gen-key
 
@@ -103,6 +101,19 @@ gpg --edit-key "id"
 
 > trust
 > quit
+```
+
+Alternativly you can import existig keys.
+
+```sh
+gpg --import private.gpg
+
+gpg --import public.gpg
+
+gpg --list-secret-keys
+
+expect -c 'spawn gpg --edit-key {KEY} trust quit; send "5\ry\r"; expect eof'
+
 ```
 
 ### Store enrypted password files with git-crypt
