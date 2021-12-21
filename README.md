@@ -2,10 +2,6 @@
 
 My Configuration Repo for NixOS
 
-# Install NIxOS from flakes
-
-# NixOs LUKS PV Home Manager Flake deployment
-
 ## Remote Login with SSH
 
 ```sh
@@ -91,30 +87,30 @@ swapon /dev/vg/swap
 ## Install system
 
 ```sh
-#nix-shell -p git nixFlakes
+nix-shell -p git nixFlakes
 
-#git clone https://github.com/tom-tubeless/NixOS-Config.git /mnt/etc/nixos
+git clone https://github.com/tom-tubeless/GoNixSys.git /mnt/etc/nixos
 
-#nixos-install --root /mnt --flake /mnt/etc/nixos#nixtst
-
-# sudo nix flake update /etc/nixos/
-
-# sudo nixos-rebuild switch --flake /etc/nixos/#nixtst
-
-nixos-generate-config --root /mnt
-
-rm /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/configuration.nix
-
-nano /mnt/etc/nixos/hardware-configuration.nix
-
-nano /mnt/etc/nixos/configuration.nix
-
-nixos-install
-```
+nixos-install --root /mnt --flake /mnt/etc/nixos#testbox
 
 reboot
 
-# NixOS Flakes
+sudo nix flake update /etc/nixos/
+
+sudo nixos-rebuild switch --flake /etc/nixos/#nixtst
+
+# nixos-generate-config --root /mnt
+
+# rm /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/configuration.nix
+
+# nano /mnt/etc/nixos/hardware-configuration.nix
+
+# nano /mnt/etc/nixos/configuration.nix
+
+# nixos-install
+```
+
+<!-- # NixOS Flakes
 
 ```sh
 nix-shell -I nixpkgs=channel:nixos-21.11 --packages nixUnstable
@@ -128,8 +124,8 @@ nixos-rebuild switch --upgrade
 mkdir -p ~/.config/nix
 
 echo 'experimental-features = nix-command flakes' >> ~/.config/nix/nix.conf
-```
-
+``` -->
+<!--
 ```sh
 gpg2 --expert --full-gen-key
 
@@ -158,4 +154,4 @@ git commit -m "Initial commit"
 
 git crypt lock
 git crypt unlock
-```
+``` -->
