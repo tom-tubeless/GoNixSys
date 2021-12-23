@@ -71,7 +71,7 @@
     };
   initrd.luks.devices = {
         root = {
-          device = "/dev/sda2";
+          device = "/dev/nvme0n1p2";
           preLVM = true;
         };
     };
@@ -80,7 +80,7 @@
   ### Networking ###
   networking = {
     # hostName = "testbox";
-    interfaces.enp0s3.useDHCP = true;
+    interfaces.enp56s0u1u1.useDHCP = true;
     useDHCP = false;
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     firewall = {
@@ -94,11 +94,11 @@
   ### Time and locales
   time.timeZone = "Europe/Berlin";
   i18n = {
-    defaultLocale = "de_DE.UTF-8";
-    supportedLocales = [ "de_DE.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
+    defaultLocale = "all";
+    supportedLocales = [ "de_DE.UTF-8/UTF-8" "de_DE.UTF-8/UTF-8" ];
   };
   console = {
-    font = "Lat2-Terminus32";
+    font = "Lat2-Terminus16";
     keyMap = "de";
     colors = [
       "2E3440"
