@@ -28,6 +28,8 @@ lsblk
 wipefs -a /dev/sda
 ```
 
+> Note: Adapt `sda` to the matching ouput of `lsblk`.
+
 ### Disk Partition
 
 ```sh
@@ -163,7 +165,7 @@ nix-shell -p git nixFlakes
 
 git clone https://github.com/tom-tubeless/GoNixSys.git
 
-nixos-install --root /mnt --flake /home/lgo/GoNixSys/#reiner --impure
+nixos-install --root /mnt --flake ~/GoNixSys/#reiner --impure
 
 reboot
 
