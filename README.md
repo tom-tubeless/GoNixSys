@@ -164,6 +164,13 @@ git push origin main
 nix-shell -p git nixFlakes
 
 git clone https://github.com/tom-tubeless/GoNixSys.git
+```
+
+Adjust the Configuration to your Liking.
+You should change the User-Password and meybe have to adjust the hardware, network and storage settings.
+
+```sh
+rm -rf ~/GoNixSys/flake.lock
 
 nixos-install --root /mnt --flake ~/GoNixSys/#reiner --impure
 
