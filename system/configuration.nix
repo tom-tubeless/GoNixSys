@@ -94,8 +94,8 @@
   ### Time and locales
   time.timeZone = "Europe/Berlin";
   i18n = {
-    defaultLocale = "all";
-    supportedLocales = [ "de_DE.UTF-8/UTF-8" "de_DE.UTF-8/UTF-8" ];
+    defaultLocale = "de_DE.UTF-8";
+    supportedLocales = [ "de_DE.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
   };
   console = {
     font = "Lat2-Terminus16";
