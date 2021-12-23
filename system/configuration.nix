@@ -220,7 +220,7 @@
       set autoindent
       set brackets ""')>]}"
       set linenumbers
-      set magic
+      #set magic
       set matchbrackets "(<[{)>]}"
       set mouse
       set rawsequences

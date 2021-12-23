@@ -4,6 +4,7 @@
 
   imports = [
     ../../services/nixos-hm-auto-update.nix
+    ./dotfiles/brave.nix
   ];
 
   home.username = "lgo";
