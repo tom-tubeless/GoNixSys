@@ -203,6 +203,8 @@ nix-channel --update
    > Note: Before installation is a good idea to logoff and login again before continuing with installation to avoid any potential issues with the missing path to the newly updated channel.
 
 ```sh
+export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
+
 nix-shell '<home-manager>' -A install
 ```
 
