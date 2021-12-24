@@ -144,13 +144,6 @@ EOT
 ```
 --->
 
-## Create password file (alternativly you could write a hashed password in `configuration.nix`.
-
-```sh
-echo $(mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt') > /etc/$USER-pw
-
-```
-
 <!---
 
 git commit -m "added enrypted file"
@@ -253,3 +246,11 @@ git commit -m "Initial commit"
 git crypt lock
 git crypt unlock
 ``` -->
+<!---
+## Create password file (alternativly you could write a hashed password in `configuration.nix`.
+
+```sh
+echo $(mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt') > /etc/$USER-pw
+
+```
+--->
