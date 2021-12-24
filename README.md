@@ -89,7 +89,7 @@ mount /dev/disk/by-label/boot /mnt/boot
 
 swapon /dev/vg/swap
 ```
-
+<!---
 ### Create GnuPG Keys for password encryption
 
 ```sh
@@ -104,6 +104,8 @@ gpg --edit-key "id"
 > trust
 > quit
 ```
+--->
+<!---
 
 Alternativly you can import existig keys.
 
@@ -117,6 +119,8 @@ gpg --list-secret-keys
 expect -c 'spawn gpg --edit-key {KEY} trust quit; send "5\ry\r"; expect eof'
 
 ```
+--->
+<!---
 
 ### Store enrypted password files with git-crypt
 
@@ -138,11 +142,16 @@ EOT
 
 # clean git with git stash or push
 ```
+--->
 
-1. Create password file and source it
+## Create password file (alternativly you could write a hashed password in `configuration.nix`.
 
 ```sh
-echo $(mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt') > .secrets/$USER-pw
+echo $(mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt') > /etc/$USER-pw
+
+```
+
+<!---
 
 git commit -m "added enrypted file"
 
@@ -154,6 +163,7 @@ git commit -m "upload enrypted files"
 
 git push origin main
 ```
+--->
 
 ### Install system
 
