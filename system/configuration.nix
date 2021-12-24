@@ -136,8 +136,8 @@
       description = "Lutz Go";
       extraGroups = [ "users" "wheel" "networkmanager" "docker"];
       # mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt' and put in in the file
-      # hashedPassword = "$6$ZaYKHBFurTaVvrjA$zhtaS9VAttn95Op3ny5GE2sbn2d29.660/yQnRbTyazVL3fXn7qUV//v21fhKeQR6fwtZI7300X8TBzJlDuIt/";
-      passwordFile = "/etc/lgo-pw";
+      hashedPassword = "...";
+      #passwordFile = "/etc/lgo-pw";
       home = "/home/lgo";
       isNormalUser = true;
       openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8E9qXTKVGPUVFynznaYEUwXCEyjNjE/CYmlciqKpmh tom1@xps-15" ];
