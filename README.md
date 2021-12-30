@@ -93,6 +93,10 @@ swapon /dev/vg/swap
 ### Create GnuPG Keys for password encryption
 
 ```sh
+sudo chown -R $USER:$USER ~/.gnupg
+chmod 700 ~/.gnupg
+chmod -R 600 ~/.gnupg/*
+
 gpg2 --expert --full-gen-key
 
 gpg --output ../private.gpg --armor --export-secret-key "id"
@@ -110,6 +114,8 @@ gpg --edit-key "id"
 Alternativly you can import existig keys.
 
 ```sh
+nix-shell -p gnupg --run 'sudo gpg --import ~/private.gpg'
+
 gpg --import private.gpg
 
 gpg --import public.gpg

@@ -7,12 +7,18 @@
       ./hardware-configuration.nix
       ../services/nixos-auto-update.nix
       ./kde.nix
+#      ./vscodium.nix
   ];
 
   nixpkgs = {
     config = {
       allowBroken = true;
       allowUnfree = true;
+      packageOverrides = pkgs: {
+        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+          inherit pkgs;
+        };
+      };
     };
   };
 
@@ -46,12 +52,13 @@
 
   ### Boot Configuration ###
   boot = {
-    initrd.checkJournalingFS = false; # for Virtualbox only
+    cleanTmpDir = true;
+    # initrd.checkJournalingFS = false; # for Virtualbox only
     kernelPackages = pkgs.linuxPackages_latest;
-    # kernelModules = mkBefore [
-    #   "intel_agp"
-    #   "i915"
-    # ];
+    #kernelModules = mkBefore [
+    #  "intel_agp"
+    #  "i915"
+    #];
     # kernelModules = mkBefore [
     #   "intel_agp"
     #   "i915"
@@ -66,27 +73,41 @@
         enable = true;
         enableCryptodisk = true;
         device = "nodev";
+        fontSize = 32;
         version = 2;
       };
     };
-  initrd.luks.devices = {
-        root = {
-          device = "/dev/nvme0n1p2";
-          preLVM = true;
-        };
+    initrd.luks.devices = {
+      root = {
+        device = "/dev/nvme0n1p2";
+        preLVM = true;
+      };
     };
+    initrd.preLVMCommands = ''
+      echo '--- OWNERSHIP NOTICE ---'
+      echo 'This device is property of Lutz Go'
+      echo 'If lost please contact lutz0go@gmail.com'
+      echo '--- OWNERSHIP NOTICE ---'
+    '';
   };
+  
 
   ### Networking ###
   networking = {
     # hostName = "testbox";
-    interfaces.enp56s0u1u1.useDHCP = true;
-    useDHCP = false;
+    # interfaces.enp56s0u1u1.useDHCP = true;
+    # useDHCP = false;
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 80 443 22 ];
+      allowedTCPPorts = [ 80 443 22];
+      allowedTCPPortRanges = [
+        { from = 1714; to = 1764; }
+      ];
       allowedUDPPorts = [ 53 ];
+      allowedUDPPortRanges = [
+        { from = 1714; to = 1764; }
+      ];
       allowPing = true;
     };
   };
@@ -98,7 +119,9 @@
     supportedLocales = [ "de_DE.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
   };
   console = {
-    font = "Lat2-Terminus16";
+    earlySetup = true;
+    packages = with pkgs; [ terminus_font ];
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
     keyMap = "de";
     colors = [
       "2E3440"
@@ -134,16 +157,16 @@
     mutableUsers = false;
     users.lgo = {
       description = "Lutz Go";
-      extraGroups = [ "users" "wheel" "networkmanager" "docker"];
+      extraGroups = [ "users" "wheel" "networkmanager" "docker" "audio" ];
       # mkpasswd --method=SHA-512 --rounds=4096 'password' 'salt' and put in in the file
-      hashedPassword = "...";
-      #passwordFile = "/etc/lgo-pw";
+      # hashedPassword = "...";
+      passwordFile = "/etc/lgo-pw";
       home = "/home/lgo";
       isNormalUser = true;
       openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8E9qXTKVGPUVFynznaYEUwXCEyjNjE/CYmlciqKpmh tom1@xps-15" ];
-      # packages = with pkgs; [
-      #   python39Full
-      # ];
+      packages = with pkgs; [
+        nix-index
+      ];
       shell = pkgs.zsh;
       uid = 1000;
     };
@@ -159,6 +182,12 @@
 
   ### Services ###
   services = {
+    fwupd.enable = true;
+    
+    # gpg-agent = {
+    #     enable = true;
+    #     enableSshSupport = true;
+    # };
     nixos-auto-update.enable = true;
     logrotate = {
       enable = true;
@@ -180,6 +209,16 @@
       forwardX11 = true;
       ports = [ 22 ];
     };
+#    smartd = {
+#      enable = true;
+#      # Monitor all devices connected to the machine at the time it's being started
+#      autodetect = true;
+#      notifications = {
+#        x11.enable = if config.services.xserver.enable then true else false;
+#        wall.enable = true; # send wall notifications to all users
+#      };
+#    };
+    timesyncd.enable = true;
   };
 
   ### Virtualization ###
@@ -193,6 +232,11 @@
 
   ### Programm Configuration ###
   programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      # pinentryFlavor = "curses";
+  };
     ssh.startAgent = false;
     vim.defaultEditor = true;
     zsh = {

@@ -1,2 +1,2 @@
 #!/bin/sh
-nix flake update ~/GoNixSys
+sudo nix flake update ~/GoNixSys

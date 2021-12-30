@@ -6,8 +6,9 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+#    nur.url = github:nix-community/NUR;
   };
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, nur, ... }:
     {
       homeConfigurations = {
         lgo = inputs.home-manager.lib.homeManagerConfiguration {
@@ -19,10 +20,14 @@
             let
               overlay-unstable = final: prev: {
                 unstable = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
+ #               nur = inputs.nur {inherit pkgs;};
               };
             in
             {
-              nixpkgs.overlays = [ overlay-unstable ];
+              nixpkgs.overlays = [
+                overlay-unstable
+#                nur.repos.mic92.hello-nur
+              ];
               nixpkgs.config = {
                 allowUnfree = true;
                 allowBroken = true;

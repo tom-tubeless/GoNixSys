@@ -2,42 +2,72 @@
 
 {
 
-  imports = [
-    ../../services/nixos-hm-auto-update.nix
-    ./dotfiles/brave.nix
-  ];
+    imports = [
+        ../../services/nixos-hm-auto-update.nix
+        #../../services/nixos-vscode-ssh-fix.nix
+        ./dotfiles/brave.nix
+    ];
 
-  home.username = "lgo";
-  home.homeDirectory = "/home/lgo";
+    home.username = "lgo";
+    home.homeDirectory = "/home/lgo";
 
-  home.stateVersion = "21.11";
+    home.stateVersion = "21.11";
 
-  fonts.fontconfig.enable = true;
+    fonts.fontconfig.enable = true;
 
-  programs = { 
-    dircolors.enable = true;
-    gpg.enable = true;
-    home-manager.enable = true;
+    # nixpkgs.config.packageOverrides = pkgs: {
+    #     nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+    #       inherit pkgs;
+    #     };
+    # };
 
-    direnv = {
-      enable = true;
-      nix-direnv = {
-        enable = true;
-        enableFlakes = true;
-      };
+    home.packages = with pkgs; [
+        gimp-with-plugins
+        git
+        git-crypt
+        gnupg
+        inkscape-with-extensions
+        libreoffice-qt
+    ];
+
+    programs = { 
+         dircolors.enable = true;
+
+         direnv = {
+              enable = true;
+              nix-direnv = {
+                  enable = true;
+                  enableFlakes = true;
+              };
+          };
+
+          git = {
+            enable = true;
+            userName  = "tom-tubeless";
+            userEmail = "lutz.tomala@gmail.com";
+         };
+
+         gpg.enable = true;
+         home-manager.enable = true;
     };
-  };
 
-  services = {
-      gpg-agent = {
-        enable = true;
-        enableSshSupport = true;
-      };
-  };
+#   environment.etc."xdg/user-dirs.defaults".text = ''
+#     DESKTOP=system/desktop
+#     DOWNLOAD=downloads
+#     TEMPLATES=system/templates
+#     PUBLICSHARE=system/public
+#     DOCUMENTS=documents
+#     MUSIC=media/music
+#     PICTURES=media/photos
+#     VIDEOS=media/video
+#   '';
 
-  home.packages = with pkgs; [
-      git
-      git-crypt
-      gnupg
-  ];
+
+    services = {
+        gpg-agent = {
+            enable = true;
+            enableSshSupport = true;
+        };
+        #nixos-vscode-ssh-fix.enable = true;
+    };
 }
