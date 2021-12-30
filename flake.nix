@@ -37,7 +37,7 @@
       reiner = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          nixos-hardware.nixosModules.dell-xps-15-9500
+          nixos-hardware.nixosModules.dell-xps-15-9500-nvidia
           #{ nixpkgs.overlays = [ nur.overlay ]; }
           #({ pkgs, ... }:
           #let

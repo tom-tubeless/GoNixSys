@@ -209,15 +209,15 @@
       forwardX11 = true;
       ports = [ 22 ];
     };
-#    smartd = {
-#      enable = true;
-#      # Monitor all devices connected to the machine at the time it's being started
-#      autodetect = true;
-#      notifications = {
-#        x11.enable = if config.services.xserver.enable then true else false;
-#        wall.enable = true; # send wall notifications to all users
-#      };
-#    };
+   smartd = {
+       enable = true;
+       # Monitor all devices connected to the machine at the time it's being started
+       autodetect = true;
+       notifications = {
+           x11.enable = if config.services.xserver.enable then true else false;
+           wall.enable = true; # send wall notifications to all users
+       };
+   };
     timesyncd.enable = true;
   };
 

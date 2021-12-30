@@ -31,6 +31,7 @@
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
     ksm.enable = true;
+    nvidia.modesetting.enable = true;
     opengl.enable = true;
     opengl.extraPackages = with pkgs; [
       vaapiIntel
