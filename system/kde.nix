@@ -29,7 +29,14 @@
     };
   };
 
-  security.rtkit.enable = true;
+  security = {
+      rtkit.enable = true;
+      pam.services = {
+        login.fprintAuth = true;
+        xlock.fprintAuth = true;
+        xscreensaver.fprintAuth = true;
+      };
+  };
 
   environment.systemPackages = with pkgs; [
       ark

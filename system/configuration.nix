@@ -219,6 +219,7 @@
        };
    };
     timesyncd.enable = true;
+    xserver.videoDrivers = [ "nvidia" ];
   };
 
   ### Virtualization ###
@@ -292,6 +293,7 @@
       hunspellDicts.de_DE
       hunspellDicts.en_US
       mkpasswd
+      pciutils
       wget
     ];
     variables = {
@@ -301,7 +303,7 @@
   shellAliases = {
       cp = "cp -i";
       diff = "diff --color=auto";
-      dmesg = "dmesg --color=always | lless";
+      dmesg = "dmesg --color=always";
       egrep = "egrep --color=auto";
       fgrep = "fgrep --color=auto";
       grep = "grep --color=auto";
