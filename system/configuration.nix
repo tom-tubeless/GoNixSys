@@ -55,17 +55,6 @@
     cleanTmpDir = true;
     # initrd.checkJournalingFS = false; # for Virtualbox only
     kernelPackages = pkgs.linuxPackages_latest;
-    #kernelModules = mkBefore [
-    #  "intel_agp"
-    #  "i915"
-    #];
-    # kernelModules = mkBefore [
-    #   "intel_agp"
-    #   "i915"
-    # ];
-    # kernelCompression = mkBefore [
-    #   "zstd"
-    # ];
     loader = {
       efi.canTouchEfiVariables = true;
       grub = {
@@ -73,6 +62,7 @@
         enable = true;
         enableCryptodisk = true;
         device = "nodev";
+        font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/Fura Code Retina Nerd Font Complete Mono.ttf";
         fontSize = 32;
         version = 2;
       };
@@ -310,7 +300,7 @@
       mv = "mv -i";
       ping = "ping -c3";
       ps = "ps -ef";
-      sudo = "sudo -i";
+      # sudo = "sudo -i";
       vdir = "vdir --color=auto";
     };
   };
