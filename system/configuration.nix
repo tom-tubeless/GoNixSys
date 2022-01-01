@@ -62,8 +62,8 @@
         enable = true;
         enableCryptodisk = true;
         device = "nodev";
-        font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/Fura Code Retina Nerd Font Complete Mono.ttf";
-        fontSize = 32;
+        # font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/Fura Code Retina Nerd Font Complete Mono.ttf";
+        # fontSize = 32;
         version = 2;
       };
     };
