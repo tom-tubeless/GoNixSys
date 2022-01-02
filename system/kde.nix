@@ -48,6 +48,7 @@
     kontact
     krunner-pass
     krunner-symbols
+    latte-dock
     libsForQt5.bismuth
     libsForQt5.bluez-qt
     libsForQt5.breeze-gtk
