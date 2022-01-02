@@ -30,6 +30,21 @@
       tod.enable = true;
       tod.driver = pkgs.libfprint-2-tod1-goodix;
     };
+
+    geoclue2.appConfig.redshift.isAllowed = true;
+
+    redshift = {
+      enable = true;
+      brightness = {
+        # Note the string values below.
+        day = "1";
+        night = "1";
+      };
+      temperature = {
+        day = 5500;
+        night = 3700;
+      };
+    };
   };
 
   networking = {
@@ -85,13 +100,17 @@
     plasma-pa
     plasma-thunderbolt
     redshift-plasma-applet
+    redshift-wlr
     sddm-kcm
+    vlc
     vscodium
     whitesur-gtk-theme
     whitesur-icon-theme
     zafiro-icons
     zanshin
   ];
+
+location.provider = "geoclue2";
 
 #  programms.nm-applet.enable = true;
 
