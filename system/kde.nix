@@ -72,6 +72,7 @@
     vscodium
     whitesur-gtk-theme
     whitesur-icon-theme
+    zafiro-icons
   ];
 
 #  programms.nm-applet.enable = true;
