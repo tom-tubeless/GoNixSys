@@ -1,5 +1,14 @@
 { config, pkgs, ... }:
 
+# let
+#   Inkscape-NVIDIADesktopItem = pkgs.makeDesktopItem {
+#     name = "inkscape-nvidia";
+#     desktopName = "Inkscape NVIDIA";
+#     exec = "${vpnScript}/bin/inkscape";
+#     terminal = "true";
+#   };
+# in
+
 {
   services = {
     xserver = {
@@ -46,23 +55,30 @@
     keepassxc
     kmail
     kontact
+    krename
     krunner-pass
     krunner-symbols
     latte-dock
     libsForQt5.bismuth
     libsForQt5.bluez-qt
     libsForQt5.breeze-gtk
-    libsForQt5.calindori
+    libsForQt5.kaddressbook
     libsForQt5.kauth
     libsForQt5.kdeconnect-kde
     libsForQt5.kdeplasma-addons
+    libsForQt5.keysmith
+    libsForQt5.kleopatra
+    libsForQt5.kontact
+    libsForQt5.korganizer
     libsForQt5.krunner-symbols
     libsForQt5.kwallet-pam
     libsForQt5.plasma-disks
     libsForQt5.polkit-qt
     libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.sonnet
     nextcloud-client
     nordic
+    partition-manager
     plasma-applet-virtual-desktop-bar
     plasma-browser-integration
     plasma-nm
@@ -74,6 +90,7 @@
     whitesur-gtk-theme
     whitesur-icon-theme
     zafiro-icons
+    zanshin
   ];
 
 #  programms.nm-applet.enable = true;
