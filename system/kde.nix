@@ -25,6 +25,8 @@
       layout = "de";
     };
 
+    flatpak.enable = true;
+
     fprintd = {
       enable = true;
       tod.enable = true;
@@ -65,6 +67,7 @@
   environment.systemPackages = with pkgs; [
     ark
     bluedevil
+    bottles
     calibre
     kcalc
     keepassxc
@@ -111,6 +114,10 @@
   ];
 
 location.provider = "geoclue2";
+
+users.users.lgo.extraGroups = [ "flatpak" ];
+
+xdg.portal.enable = true;
 
 #  programms.nm-applet.enable = true;
 

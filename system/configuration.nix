@@ -214,12 +214,18 @@
 
   ### Virtualization ###
   virtualisation = {
-    docker = {
+    # docker = {
+    #   enable = true;
+    #   autoPrune.enable = true;
+    #   enableOnBoot = true;
+    # };
+    podman = {
       enable = true;
-      autoPrune.enable = true;
-      enableOnBoot = true;
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
     };
   };
+
 
   ### Programm Configuration ###
   programs = {
