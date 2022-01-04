@@ -69,6 +69,7 @@
     bluedevil
     bottles
     calibre
+    imagemagick
     kcalc
     keepassxc
     kmail
@@ -105,8 +106,10 @@
     redshift-plasma-applet
     redshift-wlr
     sddm-kcm
+    texlive.combined.scheme-full
     vlc
     vscodium
+    vscode-extensions.valentjn.vscode-ltex
     whitesur-gtk-theme
     whitesur-icon-theme
     zafiro-icons

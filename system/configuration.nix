@@ -7,7 +7,7 @@
       ./hardware-configuration.nix
       ../services/nixos-auto-update.nix
       ./kde.nix
-#      ./vscodium.nix
+      # ./python.nix
   ];
 
   nixpkgs = {

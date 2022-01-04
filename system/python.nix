@@ -3,7 +3,8 @@
 {
 
   environment.systemPackages = with pkgs; [
-  vscodium
+  pythonFull
+  jupyter
   ];
 
 }
