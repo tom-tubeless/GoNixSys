@@ -238,6 +238,7 @@
     vim.defaultEditor = true;
     zsh = {
       enable = true;
+      autosuggestions.enable = true;
       ohMyZsh= {
         enable = true;
         plugins = [
@@ -255,6 +256,7 @@
         ];
       };
       promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      syntaxHighlighting.enable = true;
     };
     nano.nanorc = ''
       set atblanks
