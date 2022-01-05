@@ -98,6 +98,7 @@
     nextcloud-client
     nordic
     partition-manager
+    pdfchain
     plasma-applet-virtual-desktop-bar
     plasma-browser-integration
     plasma-nm
