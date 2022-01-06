@@ -58,7 +58,6 @@
     gpg.enable = true;
 
     home-manager.enable = true;
-
   };
 
 #   environment.etc."xdg/user-dirs.defaults".text = ''

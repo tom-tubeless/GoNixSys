@@ -48,28 +48,35 @@
   };
 
   environment.gnome.excludePackages = with pkgs; [
+    epiphany
     gnome.atomix
     gnome.gedit
     gnome.gnome-characters
     gnome.gnome-maps
     gnome.gnome-music
     gnome.gnome-software
+    gnome.gnome-terminal
     gnome.gnome-weather
     gnome.hitori
     gnome.iagno
     gnome.tali
     gnome.totem
-    gnome-photos 
+    gnome-photos
     gnome-tour
     gnome-user-docs
     xterm
+    yelp
     ];
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
     gnomeExtensions.appindicator
+    polkit_gnome
     texlive.combined.scheme-full
+    tilix
     vlc
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
   ];
 
 users.users.lgo.extraGroups = [ "flatpak" ];

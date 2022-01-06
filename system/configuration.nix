@@ -257,6 +257,7 @@
       };
       promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       syntaxHighlighting.enable = true;
+      vteIntegration = true;
     };
     nano.nanorc = ''
       set atblanks
