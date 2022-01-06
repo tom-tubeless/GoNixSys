@@ -6,8 +6,10 @@
       enable = true;
       displayManager = {
         gdm.enable = true;
-        autoLogin.enable = true;
-        autoLogin.user = "lgo";
+        gdm.walynad = true;
+        gdm.nvidiaWayland = true;
+        #autoLogin.enable = true;
+        #autoLogin.user = "lgo";
         };
       desktopManager.gnome = {
         enable = true;
@@ -24,7 +26,8 @@
     };
 
     udev.packages = with pkgs; [
-      gnome3.gnome-settings-daemon
+      dconf
+      gnome.gnome-settings-daemon
     ];
   };
 
@@ -40,6 +43,7 @@
         login.fprintAuth = true;
         xlock.fprintAuth = true;
         xscreensaver.fprintAuth = true;
+        gdm.enableGnomeKeyring = true;
       };
   };
 
