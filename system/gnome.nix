@@ -6,7 +6,7 @@
       enable = true;
       displayManager = {
         gdm.enable = true;
-        gdm.walynad = true;
+        gdm.wayland = true;
         gdm.nvidiaWayland = true;
         #autoLogin.enable = true;
         #autoLogin.user = "lgo";
