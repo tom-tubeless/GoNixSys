@@ -28,7 +28,7 @@
     git-crypt
     gnupg
     inkscape-with-extensions
-    libreoffice-qt
+    libreoffice-fresh
   ];
 
   programs = { 
