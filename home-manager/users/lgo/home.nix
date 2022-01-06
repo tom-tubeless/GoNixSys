@@ -4,7 +4,7 @@
 
   imports = [
     ../../services/nixos-hm-auto-update.nix
-    #../../services/nixos-vscode-ssh-fix.nix
+    ../../services/nixos-vscode-ssh-fix.nix
     ./dotfiles/brave.nix
     ./dotfiles/gnome.nix
     ./dotfiles/vsc.nix
@@ -25,8 +25,7 @@
 
   home.packages = with pkgs; [
     gimp-with-plugins
-    git
-    git-crypt
+    gitFull
     gnupg
     inkscape-with-extensions
     libreoffice-fresh
@@ -50,10 +49,13 @@
       userName  = "tom-tubeless";
       userEmail = "lutz.tomala@gmail.com";
       extraConfig = {
-        credential.helper = "${
-          pkgs.git.override { withLibsecret = true; }
-        /bin/git-credential-libsecret";
+        credential.helper = "libsecret";
       };
+#      extraConfig = {
+#        credential.helper = "${
+#          pkgs.git.override { withLibsecret = true; }
+#        /bin/git-credential-libsecret";
+#      };
     };
 
     gpg.enable = true;
@@ -78,6 +80,6 @@
       enable = true;
       enableSshSupport = true;
     };
-    #nixos-vscode-ssh-fix.enable = true;
+    nixos-vscode-ssh-fix.enable = true;
   };
 }
