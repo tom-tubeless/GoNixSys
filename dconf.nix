@@ -16,17 +16,18 @@ in
     };
 
     "com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d" = {
-      background-color = "#2E3440";
+      background-color = "#1E1E1E";
       background-transparency-percent = 2;
       badge-color-set = false;
       bold-color-set = false;
       cursor-colors-set = false;
       cursor-shape = "ibeam";
       font = "'FuraCode Nerd Font weight=450 11'";
-      foreground-color = "#D8DEE9";
+      foreground-color = "#A7A7A7";
       highlight-colors-set = false;
-      palette = [ "#2E3440" "#BF616A" "#A3BE8C" "#EBCB8B" "#81A1C1" "#B48EAD" "#88C0D0" "#D8DEE9" "#3B4252" "#BF616A" "#A3BE8C" "#EBCB8B" "#81A1C1" "#B48EAD" "#88C0D0" "#ECEFF4" ];
+      palette = [ "#1E1E1E" "#CF6A4C" "#8F9D6A" "#F9EE98" "#7587A6" "#9B859D" "#AFC4DB" "#A7A7A7" "#5F5A60" "#CF6A4C" "#8F9D6A" "#F9EE98" "#7587A6" "#9B859D" "#AFC4DB" "#FFFFFF" ];
       terminal-bell = "none";
+      use-system-font = false;
       use-theme-colors = false;
       visible-name = "Default";
     };
@@ -92,7 +93,7 @@ in
       gtk-im-module = "ibus";
       gtk-theme = "WhiteSur-dark-grey";
       icon-theme = "WhiteSur-dark";
-      monospace-font-name = "'FuraCode Nerd Font Mono weight=450 11'";
+      monospace-font-name = ""'FuraCode Nerd Font Mono weight=450 11'"";
       show-battery-percentage = true;
     };
 
@@ -223,6 +224,10 @@ in
       toggle-tiled-right = [];
     };
 
+    "org/gnome/nautilus/icon-view" = {
+      default-zoom-level = "standard";
+    };
+
     "org/gnome/nautilus/list-view" = {
       use-tree-view = true;
     };
@@ -272,7 +277,7 @@ in
       css-updated = "1641478221510";
       focus-border-toggle = false;
       tiling-mode-enabled = true;
-      window-gap-size = "uint32 8";
+      window-gap-size = "uint32 4";
       window-gap-size-increment = "uint32 1";
     };
 
@@ -292,7 +297,7 @@ in
     };
 
     "org/gnome/shell/extensions/gsconnect/device/a1c8c1f19022f449" = {
-      certificate-pem = "'-----BEGIN CERTIFICATE-----\nMIIC9zCCAd+gAwIBAgIBATANBgkqhkiG9w0BAQsFADA/MRkwFwYDVQQDDBBhMWM4\nYzFmMTkwMjJmNDQ5MRQwEgYDVQQLDAtLREUgQ29ubmVjdDEMMAoGA1UECgwDS0RF\nMB4XDTIwMTAyODIzMDAwMFoXDTMwMTAyODIzMDAwMFowPzEZMBcGA1UEAwwQYTFj\nOGMxZjE5MDIyZjQ0OTEUMBIGA1UECwwLS0RFIENvbm5lY3QxDDAKBgNVBAoMA0tE\nRTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMK+UDOWie40bpEIonCC\nYFwxNuHI+xG+S/LvtPqhuVPWEKlY1mzfQSN9i6jE9vA6lFnpqGPnhwvo7/dLBgxE\nvUzviHge5kKkVtH7DK0A2p1UaJNFwpQC8DwbknQ2ced1SDptunfUBd8raNCPreD5\nZRyw8jTPzn2hICH14Gf2d4H0i5tIUY+JAxyJd+3xO2zRQQCFZlXrycUzL2dcR7A6\n6eD2rLi2YdBwwEnPq1/YxnFsoL8bSNKLtEamBfVI37tI8LmTyb5Ll7XnFfgVSzTY\nVvyob53sbzAvx+JqmMEuZ7EAiKo44cZ6WrtRxg/QaHNJVSeoZfV2XHWZLDTLahYY\nedsCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAZLvbxsBYCT8TLQPqduhxQqrfOyRK\nvVg6XiXgTfyD7+GPgwPQD+/4ZHvK+9mKRxjGhO3QDDV9X+c2wUb4tzKpOZiRK2gD\nX0H1tME/bPWVTjXaawhN0nR+RFR3BSaWyR2SeNjkSjP2DR3j4jGugOXQvUThQWCJ\ntszzthUwbioFSL242fx9UqZsGFak94wmYJENo/dZCBTuLugYD0O5PWlXKjRU4lcV\nKxtwwQXl9K284FwfkYdJTYcU5w2AIujfxgHHe6T1F8I6BPuuCQstY9etNS+HUZyB\n2OfD+T/hgto8i25md3BFIRbf9l+/mct9WGHWfiO6Agp+OEaSzaXiTw2Adw==\n-----END CERTIFICATE-----\n'";
+      certificate-pem = ""'-----BEGIN CERTIFICATE-----\nMIIC9zCCAd+gAwIBAgIBATANBgkqhkiG9w0BAQsFADA/MRkwFwYDVQQDDBBhMWM4\nYzFmMTkwMjJmNDQ5MRQwEgYDVQQLDAtLREUgQ29ubmVjdDEMMAoGA1UECgwDS0RF\nMB4XDTIwMTAyODIzMDAwMFoXDTMwMTAyODIzMDAwMFowPzEZMBcGA1UEAwwQYTFj\nOGMxZjE5MDIyZjQ0OTEUMBIGA1UECwwLS0RFIENvbm5lY3QxDDAKBgNVBAoMA0tE\nRTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMK+UDOWie40bpEIonCC\nYFwxNuHI+xG+S/LvtPqhuVPWEKlY1mzfQSN9i6jE9vA6lFnpqGPnhwvo7/dLBgxE\nvUzviHge5kKkVtH7DK0A2p1UaJNFwpQC8DwbknQ2ced1SDptunfUBd8raNCPreD5\nZRyw8jTPzn2hICH14Gf2d4H0i5tIUY+JAxyJd+3xO2zRQQCFZlXrycUzL2dcR7A6\n6eD2rLi2YdBwwEnPq1/YxnFsoL8bSNKLtEamBfVI37tI8LmTyb5Ll7XnFfgVSzTY\nVvyob53sbzAvx+JqmMEuZ7EAiKo44cZ6WrtRxg/QaHNJVSeoZfV2XHWZLDTLahYY\nedsCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAZLvbxsBYCT8TLQPqduhxQqrfOyRK\nvVg6XiXgTfyD7+GPgwPQD+/4ZHvK+9mKRxjGhO3QDDV9X+c2wUb4tzKpOZiRK2gD\nX0H1tME/bPWVTjXaawhN0nR+RFR3BSaWyR2SeNjkSjP2DR3j4jGugOXQvUThQWCJ\ntszzthUwbioFSL242fx9UqZsGFak94wmYJENo/dZCBTuLugYD0O5PWlXKjRU4lcV\nKxtwwQXl9K284FwfkYdJTYcU5w2AIujfxgHHe6T1F8I6BPuuCQstY9etNS+HUZyB\n2OfD+T/hgto8i25md3BFIRbf9l+/mct9WGHWfiO6Agp+OEaSzaXiTw2Adw==\n-----END CERTIFICATE-----\n'"";
       incoming-capabilities = [ "kdeconnect.battery" "kdeconnect.battery.request" "kdeconnect.bigscreen.stt" "kdeconnect.clipboard" "kdeconnect.clipboard.connect" "kdeconnect.connectivity_report.request" "kdeconnect.contacts.request_all_uids_timestamps" "kdeconnect.contacts.request_vcards_by_uid" "kdeconnect.findmyphone.request" "kdeconnect.mousepad.keyboardstate" "kdeconnect.mousepad.request" "kdeconnect.mpris" "kdeconnect.mpris.request" "kdeconnect.notification" "kdeconnect.notification.action" "kdeconnect.notification.reply" "kdeconnect.notification.request" "kdeconnect.photo.request" "kdeconnect.ping" "kdeconnect.runcommand" "kdeconnect.sftp.request" "kdeconnect.share.request" "kdeconnect.share.request.update" "kdeconnect.sms.request" "kdeconnect.sms.request_attachment" "kdeconnect.sms.request_conversation" "kdeconnect.sms.request_conversations" "kdeconnect.systemvolume" "kdeconnect.telephony.request" "kdeconnect.telephony.request_mute" ];
       last-connection = "lan://192.168.1.175:1716";
       name = "Pixel 6 Pro";
@@ -315,9 +320,9 @@ in
       share-players = false;
     };
 
-    # "org/gnome/shell/extensions/gsconnect/device/a1c8c1f19022f449/plugin/notification" = {
-    #   applications = "'{"Drucker":{"iconName":"printer","enabled":false},"Alarmbenachrichtigungen in Evolution":{"iconName":"appointment-soon","enabled":false},"Datum und Zeit":{"iconName":"preferences-system-time","enabled":false},"Festplattenbelegungsanalyse":{"iconName":"org.gnome.baobab","enabled":false},"Geary":{"iconName":"org.gnome.Geary","enabled":false},"Energie":{"iconName":"gnome-power-manager","enabled":false},"Farbe":{"iconName":"preferences-color","enabled":false},"Dateien":{"iconName":"org.gnome.Nautilus","enabled":false},"Uhren":{"iconName":"org.gnome.clocks","enabled":false},"Archivverwaltung":{"iconName":"org.gnome.ArchiveManager","enabled":false}}'";
-    # };
+    "org/gnome/shell/extensions/gsconnect/device/a1c8c1f19022f449/plugin/notification" = {
+      applications = "'{"Drucker":{"iconName":"printer","enabled":false},"Alarmbenachrichtigungen in Evolution":{"iconName":"appointment-soon","enabled":false},"Datum und Zeit":{"iconName":"preferences-system-time","enabled":false},"Festplattenbelegungsanalyse":{"iconName":"org.gnome.baobab","enabled":false},"Geary":{"iconName":"org.gnome.Geary","enabled":false},"Energie":{"iconName":"gnome-power-manager","enabled":false},"Farbe":{"iconName":"preferences-color","enabled":false},"Dateien":{"iconName":"org.gnome.Nautilus","enabled":false},"Uhren":{"iconName":"org.gnome.clocks","enabled":false},"Archivverwaltung":{"iconName":"org.gnome.ArchiveManager","enabled":false}}'";
+    };
 
     "org/gnome/shell/extensions/gsconnect/device/a1c8c1f19022f449/plugin/share" = {
       receive-directory = "/home/lgo/Downloads";
@@ -356,8 +361,8 @@ in
     };
 
     "org/gtk/gtk4/settings/color-chooser" = {
-      custom-colors = [ (mkTuple [ 6.666667014360428e-2 0.7803921699523926 ]) (mkTuple [ 0.9686274528503418 0.6352941393852234 ]) (mkTuple [ 1.0 0.9647058844566345 ]) (mkTuple [ 0.7058823704719543 0.6549019813537598 ]) (mkTuple [ 0.9254902005195618 0.3686274588108063 ]) ];
-      selected-color = mkTuple [ true 6.666667014360428e-2 ];
+      custom-colors = [ (mkTuple [ 6.6667e-2 0.780392 ]) (mkTuple [ 0.968627 0.635294 ]) (mkTuple [ 1.0 0.964706 ]) (mkTuple [ 0.705882 0.654902 ]) (mkTuple [ 0.92549 0.368627 ]) ];
+      selected-color = mkTuple [ true 6.6667e-2 ];
     };
 
     "org/gtk/settings/file-chooser" = {

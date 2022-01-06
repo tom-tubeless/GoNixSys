@@ -7,7 +7,7 @@
     ../../services/nixos-vscode-ssh-fix.nix
     ./dotfiles/brave.nix
     ./dotfiles/gnome.nix
-    ./dofiles/dconf.nix
+    ./dotfiles/dconf.nix
     ./dotfiles/vsc.nix
   ];
 

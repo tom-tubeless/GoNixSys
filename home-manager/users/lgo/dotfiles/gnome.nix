@@ -6,6 +6,7 @@
     gnomeExtensions.forge
     gnomeExtensions.gsconnect
     gnomeExtensions.top-bar-organizer
+    gtk-engine-murrine
     whitesur-gtk-theme
     whitesur-icon-theme
     zafiro-icons
