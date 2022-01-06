@@ -287,7 +287,7 @@
   ### Environment ###
   environment = {
     systemPackages = with pkgs; [
-      git
+      gitFull
       hunspellDicts.de_DE
       hunspellDicts.en_US
       mkpasswd

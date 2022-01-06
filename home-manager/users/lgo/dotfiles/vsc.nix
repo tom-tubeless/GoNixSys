@@ -1,8 +1,12 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.packages = with pkgs; [
-    vscodium
-    vscode-extensions.valentjn.vscode-ltex
-  ];
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      valentjn.vscode-ltex
+    ];
+  };
+
 }

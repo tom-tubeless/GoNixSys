@@ -25,7 +25,9 @@
 
   home.packages = with pkgs; [
     gimp-with-plugins
-    gitFull
+    git
+    git-crypt
+    git-secrets
     gnupg
     inkscape-with-extensions
     libreoffice-fresh
@@ -51,16 +53,12 @@
       extraConfig = {
         credential.helper = "libsecret";
       };
-#      extraConfig = {
-#        credential.helper = "${
-#          pkgs.git.override { withLibsecret = true; }
-#        /bin/git-credential-libsecret";
-#      };
     };
 
     gpg.enable = true;
 
     home-manager.enable = true;
+
   };
 
 #   environment.etc."xdg/user-dirs.defaults".text = ''
