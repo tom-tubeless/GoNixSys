@@ -8,7 +8,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 #    nur.url = github:nix-community/NUR;
   };
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, nur, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
     {
       homeConfigurations = {
         lgo = inputs.home-manager.lib.homeManagerConfiguration {

@@ -8,7 +8,7 @@
     #nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, nixos-hardware, nur, ... }: {
+  outputs = { nixpkgs, nixpkgs-unstable, nixos-hardware, ... }: {
     nixosConfigurations = {
       testbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

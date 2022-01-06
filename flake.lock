@@ -48,26 +48,11 @@
         "type": "github"
       }
     },
-    "nur": {
-      "locked": {
-        "lastModified": 1641388190,
-        "narHash": "sha256-mgLr7kl427uLGNV5wFZ4f9Zwsb7bEnk5exVSJudsEQg=",
-        "owner": "nix-community",
-        "repo": "NUR",
-        "rev": "ea6586a5a201088fbf0212e6fbd9d800f0af6c37",
-        "type": "github"
-      },
-      "original": {
-        "id": "nur",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "nur": "nur"
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
   },
