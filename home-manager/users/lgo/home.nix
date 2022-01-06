@@ -6,7 +6,7 @@
     ../../services/nixos-hm-auto-update.nix
     #../../services/nixos-vscode-ssh-fix.nix
     ./dotfiles/brave.nix
-    # ./dotfiles/virtualization.nix
+    ./dotfiles/gnome.nix
   ];
 
   home.username = "lgo";
@@ -29,6 +29,8 @@
     gnupg
     inkscape-with-extensions
     libreoffice-fresh
+    keepassxc
+    nextcloud-client
   ];
 
   programs = { 

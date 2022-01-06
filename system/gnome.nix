@@ -43,28 +43,31 @@
       };
   };
 
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    atomix
-    gnome-characters
-    gnome.geary
-    gnome-music
-    gnome-photos 
+  environment.gnome.excludePackages = with pkgs; [
+    gnome.atomix
+    gnome.gedit
+    gnome.gnome-characters
+    gnome.gnome-maps
+    gnome.gnome-music
+    gnome.gnome-software
+    gnome.gnome-weather
+    gnome.hitori
+    gnome.iagno
+    gnome.tali
     gnome.totem
+    gnome-photos 
     gnome-tour
-    hitori
-    iagno
-    tali
+    gnome-user-docs
+    xterm
     ];
 
   environment.systemPackages = with pkgs; [
+    gnome.gnome-tweaks
     gnomeExtensions.appindicator
     texlive.combined.scheme-full
     vlc
     vscodium
     vscode-extensions.valentjn.vscode-ltex
-    whitesur-gtk-theme
-    whitesur-icon-theme
-    zafiro-icons
   ];
 
 users.users.lgo.extraGroups = [ "flatpak" ];

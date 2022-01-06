@@ -6,8 +6,8 @@
   [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../services/nixos-auto-update.nix
-      ./kde.nix
-      # ./python.nix
+      # ./kde.nix
+      ./gnome.nix
   ];
 
   nixpkgs = {
