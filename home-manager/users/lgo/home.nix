@@ -8,6 +8,7 @@
     ./dotfiles/brave.nix
     ./dotfiles/gnome.nix
     ./dotfiles/dconf.nix
+    ./dotfiles/dev.nix
     ./dotfiles/vsc.nix
   ];
 
