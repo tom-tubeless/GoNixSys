@@ -7,6 +7,7 @@
     #../../services/nixos-vscode-ssh-fix.nix
     ./dotfiles/brave.nix
     ./dotfiles/gnome.nix
+    ./dotfiles/vsc.nix
   ];
 
   home.username = "lgo";
@@ -48,6 +49,11 @@
       enable = true;
       userName  = "tom-tubeless";
       userEmail = "lutz.tomala@gmail.com";
+      extraConfig = {
+        credential.helper = "${
+          pkgs.git.override { withLibsecret = true; }
+        /bin/git-credential-libsecret";
+      };
     };
 
     gpg.enable = true;

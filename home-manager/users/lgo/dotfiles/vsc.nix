@@ -2,12 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.forge
-    gnomeExtensions.gsconnect
-    gnomeExtensions.top-bar-organizer
-    whitesur-gtk-theme
-    whitesur-icon-theme
-    zafiro-icons
+    vscodium
+    vscode-extensions.valentjn.vscode-ltex
   ];
 }

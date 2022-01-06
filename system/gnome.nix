@@ -70,8 +70,6 @@
     gnomeExtensions.appindicator
     texlive.combined.scheme-full
     vlc
-    vscodium
-    vscode-extensions.valentjn.vscode-ltex
   ];
 
 users.users.lgo.extraGroups = [ "flatpak" ];
