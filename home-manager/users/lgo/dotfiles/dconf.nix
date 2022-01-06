@@ -22,11 +22,12 @@ in
       bold-color-set = false;
       cursor-colors-set = false;
       cursor-shape = "ibeam";
-      font = "'FuraCode Nerd Font weight=450 11'";
+      # font = "'FuraCode Nerd Font Mono 11'";
       foreground-color = "#D8DEE9";
       highlight-colors-set = false;
       palette = [ "#2E3440" "#BF616A" "#A3BE8C" "#EBCB8B" "#81A1C1" "#B48EAD" "#88C0D0" "#D8DEE9" "#3B4252" "#BF616A" "#A3BE8C" "#EBCB8B" "#81A1C1" "#B48EAD" "#88C0D0" "#ECEFF4" ];
       terminal-bell = "none";
+      use-system-font = true;
       use-theme-colors = false;
       visible-name = "Default";
     };
@@ -51,14 +52,57 @@ in
     };
 
     "org/gnome/desktop/app-folders" = {
-      folder-children = [ "Utilities" "YaST" ];
+      folder-children = [ "Utilities" "YaST" "Time" "Office" "Development" "Video" "Sync" "Helper" "Settings" "Manual" "Graphic" ];
+    };
+
+    "org/gnome/desktop/app-folders/folders/Time" = {
+      apps = [ "org.gnome.Contacts.desktop" "org.gnome.Calendar.desktop" ];
+      name = "Time";
+      translate = false;
+    };
+
+    "org/gnome/desktop/app-folders/folders/Office" = {
+      apps = [ "startcenter.desktop" "base.desktop" "impress.desktop" "draw.desktop" "calc.desktop" "math.desktop" "writer.desktop" "org.gnome.Evince.desktop" ];
+      name = "Office";
+      translate = false;
+    };
+
+    "org/gnome/desktop/app-folders/folders/Development" = {
+      apps = [ "com.diy_fever.DIYLayoutCreator.desktop" "org.gaphor.Gaphor.desktop" "org.fritzing.Fritzing.desktop" "cc.arduino.arduinoide.desktop" ];
+      name = "Development";
+      translate = false;
+    };
+
+    "org/gnome/desktop/app-folders/folders/Video" = {
+      apps = [ "vlc.desktop" "org.gnome.Cheese.desktop" ];
+      name = "Video";
+      translate = false;
+    };
+
+    "org/gnome/desktop/app-folders/folders/Sync" = {
+      apps = [ "org.keepassxc.KeePassXC.desktop" "com.nextcloud.desktopclient.nextcloud.desktop" ];
+      name = "Sync";
+      translate = false;
+    };
+
+    "org/gnome/desktop/app-folders/folders/Helper" = {
+      apps = [ "org.gnome.Calculator.desktop" "org.gnome.clocks.desktop" "xterm.desktop" ];
+      name = "Helper";
+      translate = false;
+    };
+
+    "org/gnome/desktop/app-folders/folders/Settings" = {
+      apps = [ "gnome-control-center.desktop" "org.gnome.Extensions.desktop" "cups.desktop" "nvidia-settings.desktop" "org.gnome.tweaks.desktop" ];
+      name = "Settings";
+      translate = false;
     };
 
     "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = [ "gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.eog.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.tweaks.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" ];
+      apps = [ "gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" "gnome-system-monitor.desktop" ];
       categories = [ "X-GNOME-Utilities" ];
+      excludes-apps = [ "org.gnome.eog.desktop" "org.gnome.Evince.desktop" "org.gnome.tweaks.desktop" "org.gnome.Screenshot.desktop" ];
       name = "X-GNOME-Utilities.directory";
-      translate = true;
+      translate = false;
     };
 
     "org/gnome/desktop/app-folders/folders/YaST" = {
@@ -67,16 +111,28 @@ in
       translate = true;
     };
 
+    "org/gnome/desktop/app-folders/folders/Manual" = {
+      apps = [ "org.gnome.Tour.desktop" "nixos-manual.desktop" ];
+      name = "Manual";
+      translate = false;
+    };
+
+    "org/gnome/desktop/app-folders/folders/Graphic" = {
+      apps = [ "gimp.desktop" "org.inkscape.Inkscape.desktop" "simple-scan.desktop" "org.gnome.eog.desktop" "org.gnome.Screenshot.desktop" ];
+      name = "Graphic";
+      translate = false;
+    };
+
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/lgo/.local/share/backgrounds/2022-01-06-11-29-59-greatwave_nord.jpg";
+      picture-uri = "file:///home/lgo/GoNixSys/home-manager/users/lgo/dotfiles/greatwave_nord.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
 
     "org/gnome/desktop/calendar" = {
-      show-weekdate = false;
+      show-weekdate = true;
     };
 
     "org/gnome/desktop/input-sources" = {
@@ -92,7 +148,7 @@ in
       gtk-im-module = "ibus";
       gtk-theme = "WhiteSur-dark-grey";
       icon-theme = "WhiteSur-dark";
-      monospace-font-name = "'FuraCode Nerd Font Mono weight=450 11'";
+      monospace-font-name = "FuraCode Nerd Font Mono weight=450 11";
       show-battery-percentage = true;
     };
 
@@ -159,7 +215,7 @@ in
       lock-delay = "uint32 0";
       lock-enabled = false;
       picture-options = "zoom";
-      picture-uri = "file:///home/lgo/.local/share/backgrounds/2022-01-06-11-29-59-greatwave_nord.jpg";
+      picture-uri = "file:///home/lgo/GoNixSys/home-manager/users/lgo/dotfiles/greatwave_nord.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -177,12 +233,16 @@ in
       move-to-workspace-2 = [ "<Primary><Super>2" ];
       move-to-workspace-3 = [ "<Primary><Super>3" ];
       move-to-workspace-4 = [ "<Primary><Super>4" ];
+      move-to-workspace-5 = [ "<Primary><Super>5" ];
+      move-to-workspace-6 = [ "<Primary><Super>6" ];
       move-to-workspace-left = [ "<Primary><Super>Left" ];
       move-to-workspace-right = [ "<Primary><Super>Right" ];
       switch-to-workspace-1 = [ "<Super>1" ];
       switch-to-workspace-2 = [ "<Super>2" ];
       switch-to-workspace-3 = [ "<Super>3" ];
       switch-to-workspace-4 = [ "<Super>4" ];
+      switch-to-workspace-5 = [ "<Super>5" ];
+      switch-to-workspace-6 = [ "<Super>6" ];
       switch-to-workspace-left = [ "<Super>Left" ];
       switch-to-workspace-right = [ "<Super>Right" ];
       toggle-maximized = [];

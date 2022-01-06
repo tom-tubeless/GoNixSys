@@ -25,6 +25,8 @@
       tod.driver = pkgs.libfprint-2-tod1-goodix;
     };
 
+    gnome.gnome-keyring.enable = true;
+
     udev.packages = with pkgs; [
       dconf
       gnome.gnome-settings-daemon
@@ -40,10 +42,10 @@
   security = {
       rtkit.enable = true;
       pam.services = {
+        gdm.enableGnomeKeyring = true;
         login.fprintAuth = true;
         xlock.fprintAuth = true;
         xscreensaver.fprintAuth = true;
-        gdm.enableGnomeKeyring = true;
       };
   };
 
