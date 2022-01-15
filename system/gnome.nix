@@ -79,8 +79,8 @@
     texlive.combined.scheme-full
     tilix
     vlc
-    xdg-desktop-portal-gnome
-    xdg-desktop-portal-gtk
+    #xdg-desktop-portal-gnome
+    #xdg-desktop-portal-gtk
   ];
 
 users.users.lgo.extraGroups = [ "flatpak" ];
