@@ -15,6 +15,7 @@
         enable = true;
       };
       layout = "de";
+      videoDrivers = [ "nvidia"];
     };
 
     flatpak.enable = true;
@@ -73,6 +74,7 @@
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
     gnomeExtensions.appindicator
+    gnome-passwordsafe
     polkit_gnome
     texlive.combined.scheme-full
     tilix

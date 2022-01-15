@@ -8,6 +8,7 @@
       ../services/nixos-auto-update.nix
       # ./kde.nix
       ./gnome.nix
+      #<nixpkgs/nixos/modules/profiles/hardened.nix> ## Hardened Nixos (see security)
   ];
 
   nixpkgs = {
@@ -164,6 +165,9 @@
 
   ### Security ###
   security = {
+    #allowSimultaneousMultithreading = true;
+    #allowUserNamespaces = true;
+    #lockKernelModules = false;
     sudo = {
       enable = true;
       wheelNeedsPassword = true;
@@ -192,6 +196,9 @@
         rotate 31
       '';
     };
+
+    # opensnitch.enable = true;
+
     openssh = {
       enable = true;
       permitRootLogin = "no";
@@ -199,6 +206,7 @@
       forwardX11 = true;
       ports = [ 22 ];
     };
+
    smartd = {
        enable = true;
        # Monitor all devices connected to the machine at the time it's being started
@@ -208,6 +216,7 @@
            wall.enable = true; # send wall notifications to all users
        };
    };
+
     timesyncd.enable = true;
     xserver.videoDrivers = [ "nvidia" ];
   };
@@ -287,6 +296,7 @@
 
   ### Environment ###
   environment = {
+    memoryAllocator.provider = "graphene-hardened";
     systemPackages = with pkgs; [
       gitFull
       hunspellDicts.de_DE

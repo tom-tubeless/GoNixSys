@@ -8,8 +8,8 @@
     ./dotfiles/brave.nix
     ./dotfiles/gnome.nix
     ./dotfiles/dconf.nix
-    ./dotfiles/dev.nix
-    ./dotfiles/vsc.nix
+    # ./dotfiles/dev.nix
+    # ./dotfiles/vsc.nix
   ];
 
   home.username = "lgo";
@@ -18,12 +18,6 @@
   home.stateVersion = "21.11";
 
   fonts.fontconfig.enable = true;
-
-    # nixpkgs.config.packageOverrides = pkgs: {
-    #     nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-    #       inherit pkgs;
-    #     };
-    # };
 
   home.packages = with pkgs; [
     gimp-with-plugins
@@ -80,5 +74,6 @@
       enableSshSupport = true;
     };
     nixos-vscode-ssh-fix.enable = true;
+    # opensnitch-ui.enable = true;
   };
 }

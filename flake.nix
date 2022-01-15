@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nixos-hardened.url = "github:NixOS/nixpkgs/blob/master/nixos/modules/profiles/hardened.nix";
     #nur.url = "github:nix-community/NUR";
   };
 
